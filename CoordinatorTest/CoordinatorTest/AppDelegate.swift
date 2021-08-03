@@ -10,17 +10,19 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window:UIWindow?
-
+    var window: UIWindow?
+    var coordinator: MainCoordinator?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         let navVc = UINavigationController()
-        let coordinator = MainCoordinator(navigationController: navVc)
-        coordinator.start()
+        coordinator = MainCoordinator(navigationController: navVc)
+        coordinator?.start()
+        
         window?.rootViewController = navVc
         window?.makeKeyAndVisible()
-        
+
         return true
     }
 }

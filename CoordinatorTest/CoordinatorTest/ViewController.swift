@@ -33,6 +33,9 @@ class ViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
+    
+    weak var coordinator: MainCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
@@ -47,11 +50,11 @@ class ViewController: UIViewController {
     }
     
     @objc private func didTapBuyButton() {
-        print("tap buy button")
+        coordinator?.openBuy()
     }
     
     @objc private func didTapCreateAccountButton() {
-        print("tap create account button")
+        coordinator?.openCreateAccount()
     }
 }
 
